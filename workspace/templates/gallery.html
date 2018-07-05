@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Procesamiento de Imágenes - Trabajo Final</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+
+
+
+        <div class="clear"></div>
+      </div>
+
+    <div class="row">
+
+        <!--<div class="col-lg-12">-->
+        <div class="col-md-12">
+            <h1 class="page-header">Placa de auto: {{ placa }}</h1>
+        </div>
+        <div style="display: none;">{{image_names}}</div> 
+        <div style="display: none;">{{img_names}}</div> 
+        <hr>
+
+            
+        <ul class="list-group col-md-2">
+            <li class="list-group-item">
+                <a >Lista de imágenes</a>
+            </li>
+            {% for img in img_names %}
+                <li class="list-group-item col-md-6">
+                    <a href = "https://pdi-cazdemun.c9users.io:8081/gallery/{{ img }}">{{ img }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+      
+        <div class="col-md-10">
+            {% for image_name in image_names %}
+            <div class="col-lg-6 col-md-6 col-xs-6 thumb">
+                <img class="img-responsive" src="data:image/png;base64,{{ image_name }}">
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+</body>
+</html>

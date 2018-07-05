@@ -1,0 +1,15 @@
+
+    im_names = []
+    
+    img = cv2.imread('../070603/P6070001.jpg')
+    im = cv2.imread('../070603/P6070002.jpg')
+    
+    retval, buffer = cv2.imencode('.jpg', img)
+    cnt = base64.b64encode(buffer)
+    im_names.append(cnt.decode("utf-8"))
+    
+    retval, buffer = cv2.imencode('.jpg', im)
+    cnt = base64.b64encode(buffer)
+    im_names.append(cnt.decode("utf-8"))
+
+    return render_template("gallery.html", image_names=im_names)
